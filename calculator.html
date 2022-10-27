@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>테스트용</title>
+	<script>
+	function backspace(){
+		exp.value = exp.value.slice(0,-1);
+	}	/*글자를 지우는 버튼에 대한 함수*/
+
+	function clearexp() {
+		var exp=document.getElementById("exp");
+		exp.value="0";
+	}
+
+	function addInput(value){
+		var exp=document.getElementById("exp");
+		if(exp.value=="0") //기본값일때 0을 지우고 입력
+			exp.value=value;
+		else
+			exp.value+=value;
+	}
+
+	function calculate(){
+		var exp=documtnt.getElementById("exp");
+		exp.value=eval(exp.value);
+	}
+
+	function result(){
+		exp.value=eval(exp.value);
+	}
+
+	function pow(){
+		exp.value=Math.pow(exp.value,2);
+	}
+
+	function sqrt(){
+		exp.value=Math.sqrt(exp.value);
+	}
+
+	</script>
+
+	<style>
+		tr{text-align:center;}
+		td{width:80px;}
+		input[type=button]{width:60px;}
+		.red {color: red;}
+		.blue {color:blue;}
+		table {
+			background:#ECF6CE;
+			border:3px double lightgray;
+		}
+		h3 { 
+			color : #463B32;
+			font: italic bold 20px consolas, sans-serif;
+		}
+		input[type=button]:hover{
+			background:aliceblue;
+		}
+	</style>
+</head>
+<body>
+	<h1>여러분 보이시나요?!?!?</h1>
+	<hr>
+	<form>
+		<table>
+			<tr>
+				<td colspan="4"><input type="text" id="exp" value="0" size="50"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="back" class='red' value="BACK" onclick="backspace()"></td>
+				<td><input type="button" id="ce" class='red' value="CE" onclick="clearexp()"></td>
+				<td><input type="button" id="c" class='red' value="C" onclick="clearexp()"></td>
+				<td><input type="button" id="equal" class='blue' value="=" onclick="result()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="seven" value="7" onclick="addInput(this.value)"></td> 
+				<td><input type="button" id="eight" value="8" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="nine" value="9" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="plus" class='blue' value="+" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="four" value="4" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="five" value="5" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="six" value="6" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="minus" class='blue' value="-" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="one" value="1" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="two" value="2" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="three" value="3" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="mul" class='blue' value="*" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="zero" value="0" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="point" value="." onclick="addInput(this.value)"></td>
+				<td><input type="button" id="poww" class='blue' value="X²" onclick="pow(this.value)"></td>
+				<td><input type="button" id="div" class='blue' value="/" onclick="addInput(this.value)"></td>
+			<tr>
+				<td><input type="button" id="open" value="(" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="close" value=")" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="sqr" class='blue' value="sqrt" onclick="sqrt(this.value)"></td>
+				<td><input type="button" id="none" value="NONE"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
